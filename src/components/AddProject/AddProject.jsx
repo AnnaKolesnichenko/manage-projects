@@ -4,40 +4,44 @@ import { useRef, useState } from "react";
 
 const AddProject = ({ getInputsData }) => {
   const navigate = useNavigate();
-  const titleRef = useRef();
-  const descriptionRef = useRef();
-  const dateRef = useRef();
+  // const titleRef = useRef();
+  // const descriptionRef = useRef();
+  // const dateRef = useRef();
+  //remove value={} onChange={} and add ref={refName}
 
-  // const [title, setTitle] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [date, setDate] = useState("");
-  // console.log(title);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  console.log(title);
 
   const handleCancelButton = () => {
     navigate("/");
   };
 
-  // const handleTitle = (e) => {
-  //   setTitle(e.target.value);
-  // };
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  };
 
-  // const handleDescription = (e) => {
-  //   setDescription(e.target.value);
-  // };
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+  };
 
-  // const handleDate = (e) => {
-  //   setDate(e.target.value);
-  // };
+  const handleDate = (e) => {
+    setDate(e.target.value);
+  };
 
   const handleFormSubmit = () => {
-    const title = titleRef.current.value;
-    const description = descriptionRef.current.value;
-    const date = dateRef.current.value;
-
-    //console.log(title, description, date);
+    // let title = titleRef.current.value;
+    // let description = descriptionRef.current.value;
+    // let date = dateRef.current.value;
 
     getInputsData({ title, description, date });
+    setTitle("");
+    setDescription("");
+    setDate("");
+    navigate("/");
   };
+
   return (
     <div className="w-[35rem] mt-16">
       <ul className="flex flex-row justify-end gap-8 ">
@@ -53,9 +57,25 @@ const AddProject = ({ getInputsData }) => {
         </li>
       </ul>
       <form>
-        <CustomInput label="Title" ref={titleRef} />
-        <CustomInput label="Description" textarea ref={descriptionRef} />
-        <CustomInput label="Due Date" ref={dateRef} />
+        <CustomInput
+          label="Title"
+          name="title"
+          value={title}
+          onChange={handleTitle}
+        />
+        <CustomInput
+          label="Description"
+          name="description"
+          textarea
+          value={description}
+          onChange={handleDescription}
+        />
+        <CustomInput
+          label="Due Date"
+          name="due date"
+          value={date}
+          onChange={handleDate}
+        />
       </form>
     </div>
   );

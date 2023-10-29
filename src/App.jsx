@@ -8,14 +8,14 @@ function App() {
   const [projects, setProjects] = useState([]);
 
   const getInputsData = (data) => {
-    //console.log(data);
-    setProjects((state) => state.push(data));
+    console.log(data);
+    setProjects((prevProjects) => [...prevProjects, data]);
     console.log(projects);
   };
 
   return (
     <div className="h-screen my-8 flex gap-8">
-      <SideBar />
+      <SideBar projects={projects} />
       <Routes>
         <Route path="/" element={<MainScreen />} />
         <Route

@@ -1,7 +1,8 @@
 import CustomButton from "../CustomButton";
 import { useNavigate } from "react-router-dom";
+import Projects from "../Projects/Projects";
 
-const SideBar = () => {
+const SideBar = ({ projects }) => {
   const navigate = useNavigate();
 
   const handleCreateButton = () => {
@@ -14,6 +15,7 @@ const SideBar = () => {
         YOUR PROJECTS
       </h1>
       <CustomButton onClick={handleCreateButton}>+ Add Project</CustomButton>
+      <Projects projects={projects} />
     </aside>
   );
 };
