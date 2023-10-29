@@ -2,7 +2,7 @@ import CustomInput from "../CustomInput";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 
-const AddProject = () => {
+const AddProject = ({ getInputsData }) => {
   const navigate = useNavigate();
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -34,7 +34,9 @@ const AddProject = () => {
     const description = descriptionRef.current.value;
     const date = dateRef.current.value;
 
-    console.log(title, description, date);
+    //console.log(title, description, date);
+
+    getInputsData({ title, description, date });
   };
   return (
     <div className="w-[35rem] mt-16">

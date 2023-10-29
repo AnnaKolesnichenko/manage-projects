@@ -7,12 +7,21 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [projects, setProjects] = useState([]);
 
+  const getInputsData = (data) => {
+    //console.log(data);
+    setProjects((state) => state.push(data));
+    console.log(projects);
+  };
+
   return (
     <div className="h-screen my-8 flex gap-8">
       <SideBar />
       <Routes>
         <Route path="/" element={<MainScreen />} />
-        <Route path="/addProject" element={<AddProject />} />
+        <Route
+          path="/addProject"
+          element={<AddProject getInputsData={getInputsData} />}
+        />
       </Routes>
     </div>
   );
