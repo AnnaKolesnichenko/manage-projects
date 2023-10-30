@@ -4,14 +4,14 @@ const CustomInput = ({ label, textarea, value, onChange, name }) => {
       <label className="mb-2 font-bold text-stone-600">{label}</label>
       {textarea ? (
         <textarea
-          className="h-[90px] bg-stone-200 rounded-md border-solid border-stone-300 border-[1px]"
+          className="h-[90px] bg-stone-200 rounded-md border-solid border-stone-300 border-[1px] pl-2 pt-2"
           value={value}
           onChange={onChange}
           name={name}
         />
       ) : (
         <input
-          className="h-[50px] bg-stone-200 rounded-md border-solid border-stone-300 border-[1px]"
+          className="h-[50px] bg-stone-200 rounded-md border-solid border-stone-300 border-[1px] pl-2"
           value={value}
           onChange={onChange}
           name={name}
