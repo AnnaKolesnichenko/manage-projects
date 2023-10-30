@@ -3,6 +3,7 @@ import AddProject from "./components/AddProject/AddProject";
 import MainScreen from "./components/MainScreen/MainScreen";
 import SideBar from "./components/SideBar/SideBar";
 import { Routes, Route } from "react-router-dom";
+import ProjectItem from "./components/ProjectItem/ProjectItem";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -22,6 +23,7 @@ function App() {
           path="/addProject"
           element={<AddProject getInputsData={getInputsData} />}
         />
+        <Route path="/:id" element={<ProjectItem projects={projects} />} />
       </Routes>
     </div>
   );

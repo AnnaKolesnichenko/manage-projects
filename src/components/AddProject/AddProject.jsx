@@ -85,7 +85,9 @@ const AddProject = ({ getInputsData }) => {
           onBlur={formik.handleBlur}
         />
         {formik.errors.title && formik.touched.title ? (
-          <div className="mt-4 mb-6  text-rose-700">{formik.errors.title}</div>
+          <div className="mt-2 mb-4  text-rose-400 text-xs">
+            Add some title here
+          </div>
         ) : null}
         <CustomInput
           label="Description"
@@ -98,8 +100,8 @@ const AddProject = ({ getInputsData }) => {
           onBlur={formik.handleBlur}
         />
         {formik.errors.description && formik.touched.description ? (
-          <div className="mt-4 mb-6  text-rose-700">
-            {formik.errors.description}
+          <div className="mt-2 mb-4  text-rose-400 text-xs">
+            Add some description here
           </div>
         ) : null}
         {/* <CustomInput
