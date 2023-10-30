@@ -4,14 +4,18 @@ import MainScreen from "./components/MainScreen/MainScreen";
 import SideBar from "./components/SideBar/SideBar";
 import { Routes, Route } from "react-router-dom";
 import ProjectItem from "./components/ProjectItem/ProjectItem";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [projects, setProjects] = useState([]);
-
+  console.log(projects);
   const getInputsData = (data) => {
     console.log(data);
-    setProjects((prevProjects) => [...prevProjects, data]);
-    console.log(projects);
+    const item = {
+      ...data,
+      id: uuidv4(),
+    };
+    setProjects((prevProjects) => [item, ...prevProjects]);
   };
 
   return (

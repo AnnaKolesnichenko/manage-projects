@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const Projects = ({ projects }) => {
   return (
     <ul className="flex gap-5 mt-5">
-      {projects.map((item, i) => (
-        <li key={i}>
-          <Link to={`/${i}`}>{item.title}</Link>
+      {projects.map((item) => (
+        <li key={item.id}>
+          <Link to={`/${item.id}`}>{item.title}</Link>
         </li>
       ))}
     </ul>
