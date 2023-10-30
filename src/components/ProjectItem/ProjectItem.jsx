@@ -1,22 +1,41 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Tasks from "../Tasks/Tasks";
 
-const ProjectItem = ({ projects }) => {
+const ProjectItem = ({ projects, handleDeleteItem }) => {
   const { id } = useParams();
-  console.log(projects);
-  const project = projects.find((item) => item.id === id);
-  console.log(project.date);
+  const navigate = useNavigate();
 
-  const formattedDate = project.date.toLocaleString();
+  const project = projects.find((item) => item.id === id);
+
+  const formattedDate = project.date.toLocaleString().slice(0, 10);
+
+  const handleDelete = () => {
+    handleDeleteItem(id);
+    navigate("/");
+  };
 
   return (
-    <li
-      key={id}
-      className="flex flex-col list-none mt-20 gap-10 p-5 bg-white h-[300px] w-[500px]"
-    >
-      <h2 className="capitalize text-xl text-stone-800">{project.title}</h2>
-      <p>{project.description}</p>
-      <h3>{formattedDate}</h3>
-    </li>
+    <div className="flex flex-col">
+      <li
+        key={id}
+        className="flex flex-col list-none mt-20 gap-10 p-5 h-[300px] w-[90%] border-b-2"
+      >
+        <h2 className="capitalize text-xl text-stone-800 font-bold">
+          {project.title}
+        </h2>
+        <h3 className="text-md text-stone-600 ">{formattedDate}</h3>
+        <p className="text-md text-stone-600 capitalize">
+          {project.description}
+        </p>
+        <button
+          onClick={() => handleDelete(id)}
+          className="border-b-2 border-rose-600 w-[50px] ml-auto mr-auto hover:text-rose-600 hover:border-b-stone-600"
+        >
+          Delete
+        </button>
+      </li>
+      <Tasks />
+    </div>
   );
 };
 

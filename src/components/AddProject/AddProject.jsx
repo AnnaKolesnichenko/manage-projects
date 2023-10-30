@@ -14,10 +14,10 @@ const AddProject = ({ getInputsData }) => {
   // const dateRef = useRef();
   //remove value={} onChange={} and add ref={refName}
 
-  const [startDate, setStartDate] = useState(new Date());
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [title, setTitle] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [date, setDate] = useState("");
 
   const formik = useFormik({
     initialValues: {

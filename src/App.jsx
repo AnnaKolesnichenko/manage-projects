@@ -18,6 +18,12 @@ function App() {
     setProjects((prevProjects) => [item, ...prevProjects]);
   };
 
+  const handleDelete = (id) => {
+    console.log(id);
+    const filtered = projects.filter((project) => project.id !== id);
+    setProjects(filtered);
+  };
+
   return (
     <div className="h-screen my-8 flex gap-8">
       <SideBar projects={projects} />
@@ -27,7 +33,12 @@ function App() {
           path="/addProject"
           element={<AddProject getInputsData={getInputsData} />}
         />
-        <Route path="/:id" element={<ProjectItem projects={projects} />} />
+        <Route
+          path="/:id"
+          element={
+            <ProjectItem projects={projects} handleDeleteItem={handleDelete} />
+          }
+        />
       </Routes>
     </div>
   );
